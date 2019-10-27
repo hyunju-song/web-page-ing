@@ -1,0 +1,27 @@
+.wrapper {
+	width: 900px;
+	margin: 0 auto;
+}
+.card-columns {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}	 
+
+* {
+	font-family: 'Hi Melody', cursive;
+}
+
+.comment {
+	color: blue;
+}
+
+.posting-box {
+	margin: 30px auto;
+	padding: 20px;
+	border: 2px solid black;
+	width: 500px;
+}
+
+#posting-box {
+	display: none;
+}

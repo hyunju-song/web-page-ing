@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>Hello, world!</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style_bootstrap_JAVA.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Hi+Melody&display=swap" rel="stylesheet">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+  <script>
+
+    let num = 0;
+    function hey() {
+    let url = $('#article-url').val();
+    let comment = $('#article-comment').val();
+    let author = 'hyunju';
+
+    console.log(url);
+    console.log(comment);
+
+    $.ajax({
+      type: "POST", 
+      url: "http://spartacodingclub.shop/post",
+      data: {url_give: url, comment_give: comment, author_give: author}, 
+      success: function(response){ 
+        alert('저장되었습니다'); 
+      }
+    })
+  }
+
+    function openclose(){
+    if ($('#posting-box').css('display') == 'none') {
+      $('#posting-box').show() ; 
+      $('#btn-posting-box').text('포스팅박스 닫기')
+        } else {
+      $('#posting-box').hide() ; 
+      $('#btn-posting-box').text('포스팅박스 열기')
+    }
+  }
+
+    function listing() {
+      let author = 'hyunju';
+      $.ajax({
+        type: "GET",
+        url: "http://spartacodingclub.shop/post",
+        data: {author_give: "hyunju"},
+        success: function(response){
+          let articles = response['articles'];
+          for (let i = 0; i < articles.length; i++) {
+            let card = `
+            <div class="card">
+            <img class="card-img-top" src="${articles[i]['image']}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">${articles[i]['title']}</h5>
+              <p class="card-text">${articles[i]['desc']}</p>
+              <p class="card-text comment">${articles[i]['comment']}</p>
+            </div>
+          </div>
+            `;
+            $('#card-box').append(card);
+          }
+        }
+      })
+    }
+
+    $(document).ready(function(){
+      listing();
+    });
+
+  </script>
+
+    
+  </head>
+
+  <body>
+<div class="wrapper">
+  <div class="jumbotron">
+    <h1 class="display-4">My Link List</h1>
+    <p class="lead">중요한 링크들을 저장해두고 나중에 볼 수 있습니다.</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" id="btn-posting-box" role="button" onclick=openclose()>포스팅박스 열기</a>
+  </div>
+
+  <div class="posting-box" id="posting-box">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">아티클 url</label>
+      <input type="text" id="article-url" class="form-control" id="exampleFormControlInput1">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">간단코멘트</label>
+      <textarea class="form-control" id="article-comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+      <button class="btn btn-primary" onclick=hey()>기사저장</button>
+  </div>
+  
+  <div class="card-columns" id="card-box">
+    <div class="card">
+      <img src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" class="card-img-top" alt="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg">
+      <div class="card-body">
+        <h5 class="card-title">기사제목</h5>
+        <p class="card-text">기사내용 요약</p>
+        <p class="card-text comment"> 코멘트내용 입력</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" class="card-img-top" alt="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg">
+      <div class="card-body">
+        <h5 class="card-title">기사제목</h5>
+        <p class="card-text">기사내용 요약</p>
+        <p class="card-text comment"> 코멘트내용 입력</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" class="card-img-top" alt="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg">
+      <div class="card-body">
+        <h5 class="card-title">기사제목</h5>
+        <p class="card-text">기사내용 요약</p>
+        <p class="card-text comment"> 코멘트내용 입력</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-columns" id="card-box">
+    <div class="card">
+      <img src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" class="card-img-top" alt="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg">
+      <div class="card-body">
+        <h5 class="card-title">기사제목</h5>
+        <p class="card-text">기사내용 요약</p>
+        <p class="card-text comment"> 코멘트내용 입력</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" class="card-img-top" alt="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg">
+      <div class="card-body">
+        <h5 class="card-title">기사제목</h5>
+        <p class="card-text">기사내용 요약</p>
+        <p class="card-text comment"> 코멘트내용 입력</p>
+      </div>
+    </div>
+    <div class="card">
+     <img src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg" class="card-img-top" alt="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg">
+      <div class="card-body">
+        <h5 class="card-title">기사제목</h5>
+        <p class="card-text">기사내용 요약</p>
+        <p class="card-text comment"> 코멘트내용 입력</p>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+.masthead {
+    height: 300px;
+    width: 960px;
+    margin : 0 auto;
+    background-image: url('img/DSC03054.JPG');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover; 
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.overay {
+    height: 300px;
+    background-color: rgba( 255, 255, 255, 0.5 );
+}
+
+.intro-lead-in {
+    font-size: 90px;
+    line-height: 22px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    padding-top: 150px;
+    margin-left : 50px;
+}
+
+.contain {
+    margin : 0 auto;
+    width : 960px;
+}
+
+.contain {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.first_row {
+    width: 960px;
+    max-width: 100%;
+    -webkit-box-flex: 0;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.second_row{
+    width: 960px;
+    max-width: 50%;
+    -webkit-box-flex: 0;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}

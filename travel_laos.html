@@ -1,0 +1,80 @@
+<html>
+
+<head>
+	
+	<title>Where is the Next? </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" href="{{ url_for('static', filename='travel_laos_style.css')}}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- Header -->
+
+	<header class="masthead">
+	  	<div class="overay">
+	        <div class="intro-lead-in">LAOS</div>
+	     </div>
+	</header>
+
+	<!-- Main -->
+
+	<div class="contain">
+	  <div class="row">
+	    <div class="first_row">
+	    	<p>Blog</p>
+	    	<div class="card-group">
+				{% for blog_item in blog_items %}
+			  		<div class="card">
+						<a href = "{{ blog_item.url }}">
+							<img class="card-img-top" src="{{ blog_item.thumbnail }}" alt="Card image cap"></a>
+			    		<div class="card-body">
+			      			<p class="card-text">{{ blog_item.contents }}</p>
+			      			<p class="card-text"><small class="text-muted">{{ blog_item.date }}</small></p>
+			    		</div>
+			  		</div>
+				{%endfor%}
+			</div>
+		</div>
+		  <div class="second_row">
+	    	<p>Instagram</p>
+	    	<div class="card-group">
+			  <div class="card">
+			    <img class="card-img-top" src="..." alt="Card image cap">
+			    <div class="card-body">
+			      <p class="card-text">...</p>
+			      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+			    </div>
+			  </div>
+			</div>
+	    </div>
+	    <div class="col-6">
+	    	<p>Youtube</p>
+	    	<div class="card-group">
+			  {% for youtube_item in youtube_items %}
+			  	<div class="card">
+					<a href="{{ youtube_item.url }}">
+						<img class="card-img-top" src="{{ youtube_item.thumbnail }}" alt="Card image cap"> </a>
+					<div class="card-body">
+						<p class="card-title">{{ youtube_item.contents }}</p>
+					  <p class="card-text"><small class="text-muted">조회수 : {{ youtube_item.view }} 회</small></p>
+					</div>
+			  	</div>
+			  {% endfor %}
+			</div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+</body>
+
+</html>
